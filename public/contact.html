@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="statistics.html">Statistics</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="contact-container">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or feedback about this project, feel free to reach out to us using the form below:</p>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+            
+            <button type="submit">Send Message</button>
+        </form>
+        <h3>Contact Information</h3>
+        <p>Email: <a href="mailto:21h51a05q6@cmrcet.ac.in">21h51a05q6@cmrcet.ac.in</a></p>
+        <p>Phone: +91 9110536585</p>
+        <p>Address: 123 Fraud Detection Lane, Tech City, TX 75001</p>
+    </div>
+    <footer>
+        <p>&copy; 2025 Credit Card Fraud Detection. All rights reserved.</p>
+    </footer>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // File name for the Excel sheet
+            const fileName = "contact_details.xlsx";
+
+            // Check if data already exists in localStorage
+            let workbook;
+            const existingData = localStorage.getItem("contactData");
+            if (existingData) {
+                // Parse existing data
+                const data = new Uint8Array(atob(existingData).split("").map(c => c.charCodeAt(0)));
+                workbook = XLSX.read(data, { type: "array" });
+            } else {
+                // Create a new workbook if no data exists
+                workbook = XLSX.utils.book_new();
+                const worksheet = XLSX.utils.aoa_to_sheet([["Name", "Email", "Message"]]); // Add headers
+                XLSX.utils.book_append_sheet(workbook, worksheet, "Contact Details");
+            }
+
+            // Get the worksheet
+            const worksheet = workbook.Sheets["Contact Details"];
+            const newRow = [name, email, message];
+
+            // Append the new row
+            const range = XLSX.utils.decode_range(worksheet["!ref"]);
+            const nextRow = range.e.r + 1;
+            XLSX.utils.sheet_add_aoa(worksheet, [newRow], { origin: `A${nextRow + 1}` });
+
+            // Update the range
+            worksheet["!ref"] = XLSX.utils.encode_range({
+                s: range.s,
+                e: { r: nextRow, c: range.e.c }
+            });
+
+            // Save the updated workbook to localStorage
+            const wbout = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
+            const binaryString = Array.from(new Uint8Array(wbout)).map(byte => String.fromCharCode(byte)).join("");
+            localStorage.setItem("contactData", btoa(binaryString));
+
+            alert('Thank you for reaching out! Your details have been saved.');
+            document.getElementById('contact-form').reset();
+        });
+    </script>
+</body>
+</html>

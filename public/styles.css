@@ -1,0 +1,242 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.statistics-container {
+    padding: 20px;
+    margin: 40px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.statistics-row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.statistics-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+}
+
+.statistics-chart h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #555;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+ul {
+    margin-left: 20px;
+    color: #666;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.container {
+    padding: 8px;
+    margin: 40px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Allow dynamic height */
+    overflow: visible; /*Ensure content is visible*/
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+form {
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+form label, form input, form select, form button {
+    width: 80%; /* Flexible width */
+    margin-bottom: 10px;
+}
+
+form input, form select, form button {
+    height: 40px; /* Consistent height */
+}
+
+form button {
+    background-color: blue; /* Button color */
+    color: white;
+    font: bold;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+form button:hover {
+    background-color: darkblue; /* Darker blue on hover */
+}
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+    width: 80%;
+}
+
+.contact-container {
+    padding: 20px;
+    margin: 40px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    text-align: left;
+    line-height: 1.6;
+}
+
+.contact-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contact-container p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.contact-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-container form label {
+    font-weight: bold;
+    color: #333;
+}
+
+.contact-container form input,
+.contact-container form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.contact-container form input:focus,
+.contact-container form textarea:focus {
+    border-color: #00bcd4;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
+}
+
+.contact-container form button {
+    background-color: #00bcd4;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-container form button:hover {
+    background-color: #008c9e;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative; /* Allow footer to move with content */
+    width: 100%;
+}
